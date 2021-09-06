@@ -9,7 +9,7 @@ table=[]
 
 def getpara(string1):   
 	print("finding id value of " + string1) 
-	output = subprocess.check_output("cat ModeTest | grep -A 2 " + string1, shell=True)
+	output = subprocess.check_output("cat modetest_u540 | grep -A 2 " + string1, shell=True)
 	temp = output.decode("utf-8")
 	table1=temp.split()
 	#print(table)
@@ -23,9 +23,9 @@ def getpara(string1):
 def getformat(string1):
 	global table
 	print("finding Formats available ") 
-	output = subprocess.check_output("cat ModeTest | grep -m 1 " + string1, shell=True)
+	output = subprocess.check_output("cat modetest_u540 | grep -m 1 " + string1, shell=True)
 	temp = output.decode("utf-8")
-	print(temp)
+	#print(temp)
 	table=temp.split()
 	#print(table)
 	table.pop(0)
@@ -36,6 +36,10 @@ def validate():
 	for i in range(a):
 		print("modetest -m NB2 -s " + conn_id + "@" + encod_id + ":640x480@" + table[i])
 		time.sleep(1)
+
+
+
+
 
 conn_id = getpara(s1)	
 
